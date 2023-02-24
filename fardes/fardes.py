@@ -1,5 +1,8 @@
 import textformats
-SPEC = textformats.Specification("fardes.tf.yaml")
+import importlib.resources
+_data = importlib.resources.files("fardes").joinpath("data")
+_specfile = _data.joinpath("fardes.tf.yaml")
+SPEC = textformats.Specification(str(_specfile))
 
 def _validate_elements(elements):
   # the first element shall have "unit" type
