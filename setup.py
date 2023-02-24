@@ -12,7 +12,7 @@ if not sys.version_info[0] == 3:
   sys.exit("Sorry, only Python 3 is supported")
 
 setup(name='fardes',
-      version='0.1',
+      version='1.0',
       description=\
         'A miniformat for expressing arrangements of sequence features',
       long_description=readme(),
