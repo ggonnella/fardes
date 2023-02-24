@@ -69,7 +69,7 @@ datatypes:
     hide_constants: True
   prefixed_unit_id:
     composed_of:
-      - prefix: {regex: "[>^&]?"}
+      - prefix: {regex: "[>^=]?"}
       - unit: unit_id
     implicit: {"type": "unit"}
   length_spec:
