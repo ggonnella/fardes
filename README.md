@@ -81,3 +81,10 @@ same or on the oppposite strand.
 ``A,><,=B,><,=C``: all three features are on the same strand and close
 to each other, with no features in between.
 
+## Acknowledgements
+
+This specification has been created in context of the DFG project GO 3192/1-1
+“Automated characterization of microbial genomes and metagenomes by collection
+and verification of association rules”. The funders had no role in study
+design, data collection and analysis.
+
