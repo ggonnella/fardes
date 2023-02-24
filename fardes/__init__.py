@@ -1,1 +1,1 @@
-from . import fardes
+from .parser import parse
