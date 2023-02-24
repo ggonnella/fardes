@@ -27,10 +27,39 @@ The module can be installed using ``pip``.
 Here is an example of usage of the module:
 ```
 import fardes
-from pprint import pprint
+elements = fardes.parse("A,1:10[1kb:3kb],>B,1,>C,1[2],>D,=E,[3:*],F,1:*[>2Mb],G,<>,H,>0,I,<4,J,[~3kb],K,<|>,L,><,M,&,N")
+```
 
-elements = fardes.parse("")
+will result in the following:
 
+```
+[{'prefix': '', 'type': 'unit', 'unit': 'A'},
+ {'length': {'max': 3000, 'min': 1000}, 'n_features': {'max': 10, 'min': 1}, 'type': 'interval'},
+ {'prefix': '>', 'type': 'unit', 'unit': 'B'},
+ {'length': {'max': None, 'min': 0}, 'n_features': {'max': 1, 'min': 1}, 'type': 'interval'},
+ {'prefix': '>', 'type': 'unit', 'unit': 'C'},
+ {'length': {'max': 2, 'min': 2}, 'n_features': {'max': 1, 'min': 1}, 'type': 'interval'},
+ {'prefix': '>', 'type': 'unit', 'unit': 'D'},
+ {'length': {'max': None, 'min': 0}, 'n_features': {'max': 0, 'min': 0}, 'type': 'interval'},
+ {'prefix': '=', 'type': 'unit', 'unit': 'E'},
+ {'length': {'max': None, 'min': 3}, 'n_features': {'max': None, 'min': 0}, 'type': 'interval'},
+ {'prefix': '', 'type': 'unit', 'unit': 'F'},
+ {'length': {'max': None, 'min': 2000001}, 'n_features': {'max': None, 'min': 1}, 'type': 'interval'},
+ {'prefix': '', 'type': 'unit', 'unit': 'G'},
+ {'special': 'distant', 'type': 'interval'},
+ {'prefix': '', 'type': 'unit', 'unit': 'H'},
+ {'length': {'max': None, 'min': 0}, 'n_features': {'max': None, 'min': 1}, 'type': 'interval'},
+ {'prefix': '', 'type': 'unit', 'unit': 'I'},
+ {'length': {'max': None, 'min': 0}, 'n_features': {'max': 3, 'min': 0}, 'type': 'interval'},
+ {'prefix': '', 'type': 'unit', 'unit': 'J'},
+ {'length': {'approx': 3000}, 'n_features': {'max': None, 'min': 0}, 'type': 'interval'},
+ {'prefix': '', 'type': 'unit', 'unit': 'K'},
+ {'special': 'other_molecule', 'type': 'interval'},
+ {'prefix': '', 'type': 'unit', 'unit': 'L'},
+ {'special': 'near', 'type': 'interval'},
+ {'prefix': '', 'type': 'unit', 'unit': 'M'},
+ {'special': 'overlap', 'type': 'interval'},
+ {'prefix': '', 'type': 'unit', 'unit': 'N'}]
 ```
 
 ## Examples
