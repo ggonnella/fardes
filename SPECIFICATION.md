@@ -17,12 +17,12 @@ character.
 
 ## Interval specifiers
 
-Interval specifiers generally have the form "a:b[c:d]", but can also have some
+Interval specifiers generally have the form "a:b(type)[c:d]", but can also have some
 special values or be shortened, as described later. Thereby the a:b part
-expresses the number of features in the interval between two feature IDs
-and the c:d part the length of that interval.
+expresses the number of features and type the feature type of the features
+in the interval between two identified features and the c:d part the length of that interval.
 
-In some cases, no interval specifier is used, and two feature IDs just
+In some cases, no interval specifier is used, and two identified features just
 follow each other in the list. In this case the interval specifier
 ``0:0[0:*]`` is implied (i.e. there are no other features between the two
 features with the given IDs and there is no constraint regarding the
@@ -46,6 +46,13 @@ part can be omitted and an interval specifier consisting of only a length
 specifier (``[c:d]``) used. Instead if _no_ feature shall be present, but the interval
 length shall be described a ``0`` is used, i.e. the entire
 interval specifier will be in the form ``0[c:d]``.
+
+### Type of features in the interval
+
+It is possible to specify which type the features in the interval may have.
+For this, the feature types are included in round parentheses after
+the number. If multiple types are possible, they can be indicated all
+using a ``;`` as separator, e.g. ``3:4(rRNA;tRNA)``.
 
 ### Length of the interval
 

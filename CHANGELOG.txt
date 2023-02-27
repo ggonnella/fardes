@@ -1,2 +1,5 @@
+=== 1.1 ===
+- introduced syntax for defining feature types in intervals
+
 === 1.0 ===
 - initial release

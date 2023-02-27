@@ -31,18 +31,46 @@ datatypes:
       - constant: {"*": null}
   n_features_spec:
     one_of:
-      - n_features_spec_range
+      - n_features_spec_range_w_max
+      - n_features_spec_range_wo_max
       - n_features_spec_lt
       - n_features_spec_gt
       - n_features_spec_le
       - n_features_spec_ge
-  n_features_spec_range:
+  n_features_spec_range_w_max:
     composed_of:
       - min: unsigned_integer
+      - separator: {constant: ":"}
       - max: unsigned_integer_or_infinite
-    splitted_by: ":"
-    required: 1
+      - type_spec: feature_type_spec
+    required: 2
     empty: {"min": 0, "max": null}
+    hide_constants: True
+    #merge_keys: ["type_spec"]
+  n_features_spec_range_wo_max:
+    composed_of:
+      - min: unsigned_integer
+      - type_spec: feature_type_spec
+    required: 1
+    #merge_keys: ["type_spec"]
+  feature_type_spec:
+    one_of:
+      - feature_type_single_spec
+      - feature_type_multi_spec
+  feature_type_single_spec:
+    composed_of:
+      - prefix: {constant: '('}
+      - type: {"regex": "[A-Za-z0-9_]+"}
+      - suffix: {constant: ')'}
+    hide_constants: True
+  feature_type_multi_spec:
+    composed_of:
+      - prefix: {constant: '('}
+      - types:
+          list_of: {"regex": "[A-Za-z0-9_]+"}
+          splitted_by: ";"
+      - suffix: {constant: ')'}
+    hide_constants: True
   n_features_spec_gt:
     composed_of:
       - prefix: {constant: ">"}

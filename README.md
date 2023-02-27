@@ -26,6 +26,12 @@ other relevant feature in between.
 
 ``A,1,B,C``: in this case, between A and B, there is a further feature.
 
+``A,1(gene),C``: in this case, between A and B, there is exacly one feature,
+                  which is of type gene
+
+``A,3(rRNA;tRNA),C``: in this case, between A and B, there are 3 features,
+                      of type rRNA or tRNA.
+
 ``A,8:10,B``: in this case, between A and B, there are 8 to 10 other features.
 
 ``A,1:*,B`` or ``A,>=1,B``: these are two equivalent ways to express the fact
@@ -79,7 +85,7 @@ The module can be installed using ``pip``.
 Here is an example of usage of the module:
 ```
 import fardes
-elements = fardes.parse("A,1:10[1kb:3kb],>B,1,>C,1[2],>D,=E,[3:*],F,1:*[>2Mb],G,<>,H,>0,I,<4,J,[~3kb],K,<|>,L,><,M,&,N")
+elements = fardes.parse("A,1:10[1kb:3kb],>B,1(rRNA;tRNA),>C,1[2],>D,=E,[3:*],F,1:*[>2Mb],G,<>,H,>0,I,<4,J,[~3kb],K,<|>,L,><,M,&,N")
 ```
 
 will result in the following:
@@ -88,7 +94,7 @@ will result in the following:
 [{'type': 'unit', 'unit': 'A', 'prefix': ''},
  {'type': 'interval', 'length': {'min': 1000, 'max': 3000}, 'n_features': {'min': 1, 'max': 10}},
  {'type': 'unit', 'unit': 'B', 'prefix': '>'},
- {'type': 'interval', 'length': {'min': 0, 'max': None}, 'n_features': {'min': 1, 'max': 1}},
+ {'type': 'interval', 'length': {'min': 0, 'max': None}, 'n_features': {'min': 1, 'max': 1, 'type_spec': {'types': ['rRNA', 'tRNA']}}},
  {'type': 'unit', 'unit': 'C', 'prefix': '>'},
  {'type': 'interval', 'length': {'min': 2, 'max': 2}, 'n_features': {'min': 1, 'max': 1}},
  {'type': 'unit', 'unit': 'D', 'prefix': '>'},
