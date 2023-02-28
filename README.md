@@ -126,3 +126,9 @@ This specification has been created in context of the DFG project GO 3192/1-1
 and verification of association rules”. The funders had no role in study
 design, data collection and analysis.
 
+## Name
+
+The name Fardes is an acronym for "feature arrangement description". After naming
+the project, I noticed that, according to Wiktionary https://en.wiktionary.org/wiki/farde,
+in Belgian French, a "farde" (plural: fardes) is a file, in the meaning of
+stationery to keep documents together. This fits well to the purpose of the format.
