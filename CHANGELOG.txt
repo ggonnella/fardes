@@ -1,3 +1,9 @@
+=== 1.2 ===
+- introduced syntax for defining facultative named features
+- allow using feature types also without number of features and with relative
+syntax (<n, >n, etc)
+- improved wording in SPECIFICATION
+
 === 1.1 ===
 - introduced syntax for defining feature types in intervals
 

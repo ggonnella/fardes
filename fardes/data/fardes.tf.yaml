@@ -3,7 +3,7 @@ datatypes:
   arrangement_spec:
     list_of:
       one_of:
-        - prefixed_unit_id
+        - unit_spec
         - interval
     splitted_by: ","
   unit_id: { regex: '[A-Za-z_][A-Za-z_0-9]*' }
@@ -31,12 +31,17 @@ datatypes:
       - constant: {"*": null}
   n_features_spec:
     one_of:
+      - n_features_spec_type_only
       - n_features_spec_range_w_max
       - n_features_spec_range_wo_max
       - n_features_spec_lt
       - n_features_spec_gt
       - n_features_spec_le
       - n_features_spec_ge
+  n_features_spec_type_only:
+    composed_of:
+      - type_spec: feature_type_spec
+    implicit: {"min": 0, "max": null}
   n_features_spec_range_w_max:
     composed_of:
       - min: unsigned_integer
@@ -75,30 +80,39 @@ datatypes:
     composed_of:
       - prefix: {constant: ">"}
       - min_excl: unsigned_integer
+      - type_spec: feature_type_spec
     implicit: {"max": null}
+    required: 2
     hide_constants: True
   n_features_spec_lt:
     composed_of:
       - prefix: {constant: "<"}
       - max_excl: unsigned_integer
+      - type_spec: feature_type_spec
     implicit: {"min": 0}
+    required: 2
     hide_constants: True
   n_features_spec_ge:
     composed_of:
       - prefix: {constant: ">="}
       - min: unsigned_integer
+      - type_spec: feature_type_spec
     implicit: {"max": null}
+    required: 2
     hide_constants: True
   n_features_spec_le:
     composed_of:
       - prefix: {constant: "<="}
       - max: unsigned_integer
+      - type_spec: feature_type_spec
     implicit: {"min": 0}
+    required: 2
     hide_constants: True
-  prefixed_unit_id:
+  unit_spec:
     composed_of:
       - prefix: {regex: "[>^=]?"}
       - unit: unit_id
+      - suffix: {regex: "\\??"}
     implicit: {"type": "unit"}
   length_spec:
     one_of:

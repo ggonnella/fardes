@@ -24,6 +24,8 @@ arrangements:
 features (whose IDs are given) will just follow each other without any
 other relevant feature in between.
 
+``A,B?,C``: A is maybe followed by B and surely be C
+
 ``A,1,B,C``: in this case, between A and B, there is a further feature.
 
 ``A,1(gene),C``: in this case, between A and B, there is exacly one feature,
