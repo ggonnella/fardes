@@ -71,6 +71,20 @@ same or on the oppposite strand.
 ``A,><,=B,><,=C``: all three features are on the same strand and close
 to each other, with no features in between.
 
+## Limitations
+
+The format is designed to be as simple as possible.
+There is no way to express a branched graph structure; instead all
+possible different paths would be required to be linearly spelled.
+
+A possible way (not yet implemented) to introduce branching could be
+using a syntax such as: ``A,1,{,B,C,|,C,{,B,|,D,E},},F``
+for expressing the set of paths:
+  ``A,1,B,C,F``, ``A,1,C,B,F`` and ``A,1,C,D,E,F``.
+This would require to implement additional validations, to check
+if the branches opening ``{`` and closing ``}`` are balanced, and the branch
+separator ``|`` used properly.
+
 ## Implementation as a Python package
 
 The miniformat has been implemented as a TextFormats specification
