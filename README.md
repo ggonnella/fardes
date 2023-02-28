@@ -12,7 +12,7 @@ in some cases concern the relative arrangement of features.
 
 ## Specification
 
-The miniformat is described in the Markdown document ``SPECIFICATION.md`` in
+The miniformat is described in the Markdown document [``SPECIFICATION.md``](https://github.com/ggonnella/fardes/blob/main/SPECIFICATION.md) in
 this repository.
 
 ## Examples
@@ -72,13 +72,13 @@ to each other, with no features in between.
 ## Implementation as a Python package
 
 The miniformat has been implemented as a TextFormats specification
-(``fardes.tf.yaml``).
+([``fardes.tf.yaml``](https://github.com/ggonnella/fardes/blob/main/fardes/data/fardes.tf.yaml)).
 
-This has been included in a Python module ``fardes``, which additionally include
+This has been included in a Python module [``fardes``](https://github.com/ggonnella/fardes/tree/main/fardes), which additionally include
 cross-checking not expressable in TextFormats and normalizes the elements
 while parsing a string
 (e.g. by including implicit values and applying multipliers).
-The module can be installed using ``pip``.
+The module can be installed using [``pip install fardes``](https://pypi.org/project/fardes/).
 
 ## Example usage of the Python parser
 
